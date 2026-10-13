@@ -1,0 +1,10 @@
+# dsh-agent-preset-branch bundle patch
+#
+# 挂载声明：DSH 启动时按 profile 的 bundle 列表加载本插件。
+# 安装方式（不需要改 profile 的 patch 文件）：
+#   dsh plugin --profile <profile> add <本目录绝对路径>
+# 或把本目录绝对路径填进「设置 → 插件」的安装框；也可以像现在这样在
+# profile 的 package.json 里登记一条 link: 依赖。
+- insert:
+    - id: dsh-agent-preset-branch
+      name: dsh-agent-preset-branch

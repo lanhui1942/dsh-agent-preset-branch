@@ -1,0 +1,60 @@
+{
+  "name": "dsh-agent-preset-branch",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "从任意已完成轮次把会话分支到一个新模式：会话标题栏的 Agent 预设标签变成菜单，每轮完成回复下方、产品自带分支按钮旁多出一个「分支模式」胶囊；选一个模式，就以该模式新建会话并把这段对话迁移过去（事件日志复制，源会话不被改动）。",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanhui1942/dsh-agent-preset-branch.git"
+  },
+  "homepage": "https://github.com/lanhui1942/dsh-agent-preset-branch#readme",
+  "bugs": "https://github.com/lanhui1942/dsh-agent-preset-branch/issues",
+  "main": "./host.js",
+  "exports": {
+    ".": "./host.js",
+    "./core": "./core.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "external": [
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    }
+  },
+  "meta": {
+    "title": "Agent 模式分支",
+    "description": "从任意已完成轮次把会话分支到一个新模式。两处入口，一个引擎：会话标题栏的模式标签是菜单（先选模式，再提交），每轮完成回复下方、产品自带分支按钮旁是模式胶囊（点模式即建立会话）。两者都以选中的模式新建会话，并把对话迁移到指定的那一轮为止；源会话全程只读。"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "agent-preset",
+    "preset",
+    "branch",
+    "fork",
+    "session",
+    "migration"
+  ],
+  "files": [
+    "host.js",
+    "core.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ]
+}
